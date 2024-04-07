@@ -16,8 +16,8 @@
     <div class="container mx-auto p-4">
         <header class="text-center my-5">
             <div class="pb-4">
-                <div class="overflow-x-auto max-w-full">
-                    <pre class="animate-scrollAnimation"><code class="language-bash">$ malach init "Kolo Informatyczne" | grep "Dobre Wyniki" && "100%"</code></pre>
+                <div class="container overflow-x-auto max-w-full">
+                    <pre class="text"><code class="language-bash">$ malach init "Kolo Informatyczne" | grep "Dobre Wyniki" && "100%"</code></pre>
                 </div>                                  
             </div>
             <img src="assets/canvas.png" alt="Malach Logo" class="mx-auto invert my-6 w-20">
@@ -143,5 +143,25 @@
         </footer>            
         </main>
     </div>
+    <script>
+        function checkOverflow() {
+            let container = document.querySelector('.container');
+            let text = document.querySelector('.text');
+    
+            if (container.offsetWidth < text.scrollWidth) {
+                text.classList.add('animate-scrollAnimation');
+            } else {
+                text.classList.remove('animate-scrollAnimation');
+            }
+        }
+    
+        window.addEventListener('resize', function() {
+            checkOverflow();
+        });
+    
+        window.addEventListener('DOMContentLoaded', function() {
+            checkOverflow();
+        });
+    </script>
 </body>
 </html>
